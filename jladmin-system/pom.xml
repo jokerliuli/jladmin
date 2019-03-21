@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jokerliu</groupId>
+        <artifactId>jladmin</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <groupId>com.jokerliu</groupId>
+    <artifactId>jladmin-system</artifactId>
+    <version>1.0</version>
+    <name>jladmin-system</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jokerliu</groupId>
+            <artifactId>jladmin-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.jokerliu</groupId>-->
+            <!--<artifactId>jladmin-generator</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.jokerliu</groupId>
+            <artifactId>jladmin-manage</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--腾讯云存储依赖-->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>5.4.9</version>
+            <!--去除log4j冲突-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--qiniu云存储-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>[7.2.0, 7.2.99]</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- 跳过单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

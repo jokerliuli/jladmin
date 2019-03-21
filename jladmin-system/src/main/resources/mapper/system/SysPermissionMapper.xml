@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jokerliu.system.mapper.SysPermissionMapper">
+
+    <select id="selectPage" resultType="com.jokerliu.system.entity.SysPermission">
+    SELECT * FROM sys_permission
+        <where>
+            <if test="sysPermission.id != null ">and id = #{sysPermission.id}</if>
+            <if test="sysPermission.alias != null ">and alias = #{sysPermission.alias}</if>
+            <if test="sysPermission.createTime != null ">and create_time = #{sysPermission.createTime}</if>
+            <if test="sysPermission.name != null ">and name = #{sysPermission.name}</if>
+            <if test="sysPermission.pid != null ">and name = #{sysPermission.pid}</if>
+        </where>
+
+    </select>
+
+</mapper>

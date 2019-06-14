@@ -28,4 +28,3 @@ target
 /.nb-gradle/
 /build/
 /log/
-application.yml

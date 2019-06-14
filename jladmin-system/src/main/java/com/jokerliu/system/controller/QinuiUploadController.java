@@ -1,7 +1,7 @@
 package com.jokerliu.system.controller;
 
 import com.google.gson.Gson;
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.entity.SysPictureManage;
 import com.jokerliu.system.service.ISysPictureManageService;

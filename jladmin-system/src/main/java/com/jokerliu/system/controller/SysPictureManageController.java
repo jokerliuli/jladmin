@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.base.CaseFormat;
 import com.jokerliu.system.entity.SysPictureManage;
 import com.jokerliu.enums.CommonStatus;
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.service.ISysPictureManageService;
 import lombok.extern.slf4j.Slf4j;

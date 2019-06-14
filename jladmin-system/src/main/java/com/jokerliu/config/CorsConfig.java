@@ -8,7 +8,6 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * 描      述 :  ajax跨域请求配置
- * @author alex
  */
 @Configuration
 public class CorsConfig {
@@ -25,6 +24,7 @@ public class CorsConfig {
         corsConfiguration.setAllowCredentials(true);
         return corsConfiguration;
     }
+
 
     /**
      * CorsFilter

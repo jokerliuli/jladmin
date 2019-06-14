@@ -1,6 +1,6 @@
 package com.jokerliu.system.controller;
 
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.web.bind.annotation.GetMapping;

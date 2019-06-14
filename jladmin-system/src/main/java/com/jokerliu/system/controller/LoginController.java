@@ -1,7 +1,7 @@
 package com.jokerliu.system.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.entity.SysRole;
 import com.jokerliu.system.entity.SysUser;

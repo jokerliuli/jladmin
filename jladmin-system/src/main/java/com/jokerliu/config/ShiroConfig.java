@@ -1,5 +1,6 @@
 package com.jokerliu.config;
 
+
 import com.jokerliu.config.shiro.CredentialsMatcher;
 import com.jokerliu.config.shiro.ShiroRealm;
 import com.jokerliu.config.shiro.ShiroSessionManager;
@@ -37,12 +38,8 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager());
         // 没有登陆的用户只能访问登陆页面，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
-        shiroFilterFactoryBean.setLoginUrl("/common/kickout");
-//        shiroFilterFactoryBean.setLoginUrl("/common/unauth");
-        // 登录成功后要跳转的链接
-        //shiroFilterFactoryBean.setSuccessUrl("/auth/index");
         // 未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("common/unauth");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/common/unauth");
 
         Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
         // 注意这里不要用Bean的方式，否则会报错
@@ -59,10 +56,22 @@ public class ShiroConfig {
         filterChainDefinitionManager.put("/test/**", "anon");
         // 静态资源
         filterChainDefinitionManager.put("/static/**", "anon");
+        filterChainDefinitionManager.put("/info33/**", "anon");
+        filterChainDefinitionManager.put("/jsnj33/**", "anon");
+        filterChainDefinitionManager.put("/js/**", "anon");
+        filterChainDefinitionManager.put("/image/**", "anon");
+        filterChainDefinitionManager.put("/images/**", "anon");
+        filterChainDefinitionManager.put("/css/**", "anon");
+        filterChainDefinitionManager.put("/wap/**", "anon");
+
         filterChainDefinitionManager.put("/homepageadmin/**", "anon");
 
         // 登录方法
         filterChainDefinitionManager.put("/login", "anon");
+//        filterChainDefinitionManager.put("/admin/menuByRoles", "anon");
+//        filterChainDefinitionManager.put("/admin/info", "anon");
+//        filterChainDefinitionManager.put("/admin/logout", "anon");
+
 //        filterChainDefinitionManager.put("/admin/login*", "anon"); // 表示可以匿名访问
         // 注册方法
         filterChainDefinitionManager.put("/register", "anon");
@@ -78,6 +87,18 @@ public class ShiroConfig {
 
         filterChainDefinitionManager.put("/admin/leavemes/save", "anon");
 
+        filterChainDefinitionManager.put("/picture/**/list", "anon");
+        filterChainDefinitionManager.put("/picture/**/page", "anon");
+        filterChainDefinitionManager.put("/picture/**/getOne", "anon");
+
+        filterChainDefinitionManager.put("/article/**/list", "anon");
+        filterChainDefinitionManager.put("/article/**/page", "anon");
+        filterChainDefinitionManager.put("/article/**/getOne", "anon");
+        filterChainDefinitionManager.put("/article/**/addVisit", "anon");
+        filterChainDefinitionManager.put("/article/**/getPageNum", "anon");
+
+        filterChainDefinitionManager.put("/system/website/getOne", "anon");
+
         filterChainDefinitionManager.put("/admin/**", "authc");
         //swagger2
         filterChainDefinitionManager.put("/swagger-ui.html", "anon");
@@ -85,6 +106,7 @@ public class ShiroConfig {
         filterChainDefinitionManager.put("/v2/**", "anon");
         filterChainDefinitionManager.put("/webjars/**", "anon");
 
+        filterChainDefinitionManager.put("/", "anon");
 
         filterChainDefinitionManager.put("/**", "authc");
 //        filterChainDefinitionManager.put("/**", "anon");
@@ -102,10 +124,11 @@ public class ShiroConfig {
      */
     @Bean
     public SecurityManager securityManager() {
+
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //设置realm.
         securityManager.setRealm(myShiroRealm());
-        // 自定义缓存实现 使用redis
+        // 自定义缓存实现 使用EhCache
         securityManager.setCacheManager(getEhCacheManager());
         securityManager.setSessionManager(shiroSessionManager());
         return securityManager;

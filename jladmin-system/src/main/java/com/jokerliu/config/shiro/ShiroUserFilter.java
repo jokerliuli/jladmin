@@ -1,6 +1,7 @@
 package com.jokerliu.config.shiro;
 
-import com.jokerliu.enums.Result;
+import cn.hutool.json.JSONUtil;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import org.apache.shiro.web.filter.authc.UserFilter;
 import org.springframework.http.HttpStatus;
@@ -37,13 +38,22 @@ public class ShiroUserFilter extends UserFilter {
      * 该方法会在验证失败后调用，这里由于是前后端分离，后台不控制页面跳转
      * 因此重写改成传输JSON数据
      */
+//    @Override
+//    protected void saveRequestAndRedirectToLogin(ServletRequest request, ServletResponse response) throws IOException {
+//        saveRequest(request);
+//        setHeader((HttpServletRequest) request,(HttpServletResponse) response);
+//        PrintWriter out = response.getWriter();
+//        out.println(new Result(ResultStatusCode.SHIRO_ERROR));
+//        out.flush();
+//        out.close();
+//    }
+
     @Override
     protected void saveRequestAndRedirectToLogin(ServletRequest request, ServletResponse response) throws IOException {
         saveRequest(request);
         setHeader((HttpServletRequest) request,(HttpServletResponse) response);
         PrintWriter out = response.getWriter();
-        //自己控制返回的json数据
-        out.println(new Result(ResultStatusCode.SHIRO_ERROR));
+        out.println(JSONUtil.parse(new Result(ResultStatusCode.UNAUTHO_ERROR)));
         out.flush();
         out.close();
     }
@@ -51,7 +61,7 @@ public class ShiroUserFilter extends UserFilter {
     /**
      * 为response设置header，实现跨域
      */
-    private void setHeader(HttpServletRequest request, HttpServletResponse response){
+    private void setHeader(HttpServletRequest request,HttpServletResponse response){
         //跨域的header设置
         response.setHeader("Access-control-Allow-Origin", request.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Methods", request.getMethod());

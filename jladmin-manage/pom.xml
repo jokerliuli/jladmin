@@ -11,19 +11,19 @@
     <artifactId>jladmin-manage</artifactId>
     <version>1.0</version>
     <name>jladmin-manage</name>
-    <description>Demo project for Spring Boot</description>
+    <description>about manage</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
-        <dependencies>
-            <dependency>
-                <groupId>com.jokerliu</groupId>
-                <artifactId>jladmin-common</artifactId>
-                <version>1.0</version>
-            </dependency>
-        </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.jokerliu</groupId>
+            <artifactId>jladmin-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

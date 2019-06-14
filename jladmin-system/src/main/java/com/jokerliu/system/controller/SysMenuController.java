@@ -2,7 +2,7 @@ package com.jokerliu.system.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.entity.SysMenu;
 import com.jokerliu.system.service.ISysMenuService;

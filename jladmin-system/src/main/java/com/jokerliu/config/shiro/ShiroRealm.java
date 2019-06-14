@@ -2,6 +2,7 @@ package com.jokerliu.config.shiro;
 
 
 import cn.hutool.core.util.StrUtil;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jokerliu.enums.CommonStatus;
 import com.jokerliu.system.entity.SysMenu;
@@ -20,7 +21,6 @@ import org.apache.shiro.subject.PrincipalCollection;
 
 import javax.annotation.Resource;
 import java.util.List;
-
 /**
  * @author JokerLiu
  * @create 2018-12-29 10:36

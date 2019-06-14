@@ -8,7 +8,6 @@ import org.apache.shiro.web.util.WebUtils;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.Serializable;
-
 /**
  * @author JokerLiu
  * @create 2018-12-29 10:36

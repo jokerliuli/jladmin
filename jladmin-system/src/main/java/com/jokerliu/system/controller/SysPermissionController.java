@@ -2,7 +2,7 @@ package com.jokerliu.system.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jokerliu.enums.Result;
+import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.entity.SysPermission;
 import com.jokerliu.system.service.ISysPermissionService;

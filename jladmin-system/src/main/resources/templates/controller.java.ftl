@@ -53,7 +53,7 @@ public class ${table.controllerName} {
     */
     @PostMapping("save")
     public Result save(@RequestBody ${entity} ${table.entityPath}){
-        //log.info(${table.entityPath}.toString());
+            //log.info(${table.entityPath}.toString());
         return new Result(ResultStatusCode.OK,i${entity}Service.save(${table.entityPath}));
     }
 
@@ -106,8 +106,8 @@ public class ${table.controllerName} {
     */
     @PostMapping("page")
     public Result page(@RequestParam(name = "page") int page,
-                       @RequestParam(name = "limit") int limit,
-                       @RequestBody ${entity} ${table.entityPath}) {
+                        @RequestParam(name = "limit") int limit,
+                        @RequestBody ${entity} ${table.entityPath}) {
         return new Result(ResultStatusCode.OK,i${entity}Service.page(new Page<>(page,limit),new QueryWrapper(${table.entityPath})));
     }
 }

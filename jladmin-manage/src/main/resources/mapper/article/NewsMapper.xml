@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jokerliu.article.mapper.NewsMapper">
+
+    <update id="addVisit" >
+        update article_news set visit = visit + 1 where id = #{id}
+    </update>
+    <select id="getIdByRownum" resultType="java.lang.Long">
+        select id from
+            (SELECT @rownum := @rownum +1 AS rowsnumber ,  id
+            FROM (SELECT @rownum := 0) r,article_news
+            where publish_status = 2
+            order by sort,create_date DESC) as t
+        where rowsnumber = #{rownum}
+    </select>
+
+    <select id="getRownumById" resultType="java.lang.Integer">
+        select rowsnumber from
+            (SELECT @rownum := @rownum +1 AS rowsnumber ,  id
+            FROM (SELECT @rownum := 0) r,article_news
+            where publish_status = 2
+            order by sort,create_date DESC) as t
+        where id = #{id}
+    </select>
+</mapper>

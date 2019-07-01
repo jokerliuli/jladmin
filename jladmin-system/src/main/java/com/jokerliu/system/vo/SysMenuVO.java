@@ -14,10 +14,13 @@ public class SysMenuVO {
     private String redirect;
     private String alwaysshow;
     private String name;
+    private String parentName;
     private String hidden;
-
+    private Integer sort;
+//  菜单级别从1开始
+    private Integer level;
     private MetaVO meta;
-
+    private String menuType;
     @ApiModelProperty(value = "子列表")
     private List<SysMenuVO> children;
 

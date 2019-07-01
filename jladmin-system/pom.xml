@@ -34,11 +34,11 @@
             <artifactId>jladmin-manage</artifactId>
             <version>1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.jokerliu</groupId>
-            <artifactId>jladmin-portal</artifactId>
-            <version>1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.jokerliu</groupId>-->
+<!--            <artifactId>jladmin-portal</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
         <!--腾讯云存储依赖-->
         <dependency>
             <groupId>com.qcloud</groupId>
@@ -74,5 +74,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>jladmin</finalName><!--打包后文件名称-->
     </build>
 </project>

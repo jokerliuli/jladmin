@@ -80,6 +80,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         //遍历volist
         for (SysMenuVO menuVO : menuVOList) {
             if (menuVO.getParentId() == 0) {
+                menuVO.setLevel(1);
                 //递归
                 menuVOTree.add(createTreeChildren(menuVO, menuVOList));
             }
@@ -89,6 +90,8 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     private SysMenuVO createTreeChildren(SysMenuVO menuVO, List<SysMenuVO> menuVOList) {
         for (SysMenuVO menuVO2 : menuVOList) {
             if (menuVO2.getParentId() == menuVO.getId()) {
+                menuVO2.setLevel(menuVO.getLevel()+1);
+                menuVO2.setParentName(menuVO.getName());
                 if (menuVO.getChildren() == null) {
                     menuVO.setChildren(new ArrayList<>());
                 }

@@ -53,7 +53,7 @@ public class ShiroUserFilter extends UserFilter {
         saveRequest(request);
         setHeader((HttpServletRequest) request,(HttpServletResponse) response);
         PrintWriter out = response.getWriter();
-        out.println(JSONUtil.parse(new Result(ResultStatusCode.UNAUTHO_ERROR)));
+        out.println(JSONUtil.parse(new Result(ResultStatusCode.TOKEN_TIME_OUT)));
         out.flush();
         out.close();
     }

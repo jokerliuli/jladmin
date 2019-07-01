@@ -6,6 +6,7 @@ import com.jokerliu.entity.Result;
 import com.jokerliu.enums.ResultStatusCode;
 import com.jokerliu.system.entity.SysMenu;
 import com.jokerliu.system.service.ISysMenuService;
+import com.jokerliu.system.service.ISysRoleService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,7 +25,8 @@ public class SysMenuController {
 
     @Resource
     private ISysMenuService iSysMenuService;
-
+    @Resource
+    private ISysRoleService iSysRoleService;
     /**
      * 新增菜单
      * @param sysMenu
@@ -42,6 +44,15 @@ public class SysMenuController {
     @GetMapping("list")
     public Result list() {
         return new Result(ResultStatusCode.OK,iSysMenuService.getAllMenu());
+    }
+
+    /**
+     * 查询所有菜单tree
+     * @return Result
+     */
+    @GetMapping("tree")
+    public Result tree() {
+        return new Result(ResultStatusCode.OK,iSysMenuService.getMenus(iSysRoleService.list()));
     }
 
     /**

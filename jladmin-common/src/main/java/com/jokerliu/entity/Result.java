@@ -2,15 +2,17 @@ package com.jokerliu.entity;
 
 
 import com.jokerliu.enums.ResultStatusCode;
+import lombok.Data;
 
 /**
  * 移动端api接口返回的数据模型
- * @author
+ * @author jokerliu
  *
  */
+@Data
 public class Result {
 	/**
-	 * 返回的代码，0表示成功，其他表示失败
+	 * 返回的代码，200表示成功，其他表示失败
 	 */
 	private int code;
 	/**
@@ -21,6 +23,7 @@ public class Result {
 	 * 成功时返回的数据信息
 	 */
 	private Object data;
+
 
 	public Result(int code, String msg, Object data){
 		this.code = code;
@@ -39,25 +42,11 @@ public class Result {
 	public Result(ResultStatusCode resultStatusCode){
     	this(resultStatusCode, null);
 	}
-    
-	public int getCode() {
-		return code;
+
+
+	public static Result ok(Object data) {
+		return new Result(200,"OK",data);
 	}
-	public void setCode(int code) {
-		this.code = code;
-	}
-	public String getMsg() {
-		return msg;
-	}
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-	public Object getData() {
-		return data;
-	}
-	public void setData(Object data) {
-		this.data = data;
-	}
-    
-    
+
+
 }
